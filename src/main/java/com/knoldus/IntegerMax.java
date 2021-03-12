@@ -4,11 +4,20 @@ package com.knoldus;
 import java.util.function.IntBinaryOperator;
 
 public class IntegerMax {
-    public int CalculatingMax(int FirstInteger, int SecondInteger) {
+    public Integer CalculatingMax(String FirstInteger, String SecondInteger) {
+
 
         IntBinaryOperator operator = Math::max;
+        try {
+            int result = operator.applyAsInt(Integer.parseInt(FirstInteger), Integer.parseInt(SecondInteger));
 
-        int result = operator.applyAsInt(FirstInteger, SecondInteger);
-       return result;
+            return result;
+        } catch (Exception e){
+            System.out.println(" Enter Integer Number only  "+e);
+            throw new NumberFormatException();
+        }
+
     }
+
 }
+
